@@ -1,0 +1,31 @@
+@model Kullanici
+@{
+    Layout = "Layout2";
+}
+
+<h2>Giriş Yap</h2>
+<hr>
+
+<form asp-action="Login" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="TcKimlik"></label>
+        <input asp-for="TcKimlik" class="form-control" />
+        <span asp-validation-for="TcKimlik" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sifre"></label>
+        <input asp-for="Sifre" type="password" class="form-control" />
+        <span asp-validation-for="Sifre" class="text-danger"></span>
+    </div>
+    <hr>
+
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+    <hr>
+    <div class="">
+        <p class="mb-0">Hesabınız yok mu?</p>
+        <a asp-action="Register" asp-controller="Kullanici" class="btn btn-success btn-block">Kayıt Ol</a>
+    </div>
+</form>

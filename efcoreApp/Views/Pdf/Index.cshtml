@@ -1,0 +1,19 @@
+@model efcoreApp.Models.PdfViewModel
+@{
+    ViewData["Title"] = "PDF Upload";
+}
+
+<h1>Upload PDF</h1>
+
+<form asp-controller="Pdf" asp-action="UploadPdf" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="File"></label>
+        <input type="file" name="model.File" class="form-control" />
+        <span asp-validation-for="File" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Upload</button>
+    <a href="/Pdf/ViewPdf?id=4">View PDF</a>
+
+    
+</form>
+

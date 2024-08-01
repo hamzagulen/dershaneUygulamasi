@@ -1,0 +1,56 @@
+@model Kullanici
+@{
+    Layout = "Layout2";
+}
+
+
+        <h2>Kayıt Ol</h2>
+        <hr>
+
+
+        <form asp-action="Register" method="post" class="needs-validation" novalidate>
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="TcKimlik" class="form-label">TC Kimlik</label>
+                <input asp-for="TcKimlik" class="form-control" required />
+                <div class="invalid-feedback">TC Kimlik alanı boş bırakılamaz.</div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Sifre" class="form-label">Şifre</label>
+                <input asp-for="Sifre" type="password" class="form-control" required />
+                <div class="invalid-feedback">Şifre alanı boş bırakılamaz.</div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Ad" class="form-label">Ad</label>
+                <input asp-for="Ad" class="form-control" required />
+                <div class="invalid-feedback">Ad alanı boş bırakılamaz.</div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Soyad" class="form-label">Soyad</label>
+                <input asp-for="Soyad" class="form-control" required />
+                <div class="invalid-feedback">Soyad alanı boş bırakılamaz.</div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email" class="form-label">E-posta</label>
+                <input asp-for="Email" type="email" class="form-control" required />
+                <div class="invalid-feedback">Geçerli bir e-posta adresi girin.</div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Telefon" class="form-label">Telefon</label>
+                <input asp-for="Telefon" class="form-control" required />
+                <div class="invalid-feedback">Telefon alanı boş bırakılamaz.</div>
+            </div>
+
+            <hr class="my-4">
+
+            <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+        </form>
+   
+
+

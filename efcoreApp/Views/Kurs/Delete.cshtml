@@ -1,0 +1,31 @@
+@model Kurs
+
+<p>
+    <b>@Model.Baslik </b> isimli kursu silmek istiyor musunuz?
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" value="@Model.KursId" name="id">
+        <button type="submit"class="btn btn-danger">Evet</button>
+        <a asp-action="Index" class="btn btn-primamry">Hayır</a>
+    </form>
+</p> 
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        
+        document.getElementById('btnEvet').addEventListener('click', function () {
+            Swal.fire({
+                title: 'İşlem Başarılı!',
+                text: 'Kurs başarıyla silindi.',
+                icon: 'success',
+                timer: 2000, // 3 saniye sonra otomatik kapat
+                showConfirmButton: false
+            }).then(() => {
+               
+                document.getElementById('deleteForm').submit();
+            });
+        });
+    </script>
+}

@@ -1,0 +1,31 @@
+@model Ogrenci
+
+<p>
+    <b>@Model.OgrenciAd @Model.OgrenciSoyad</b> isimli öğrenciyi silmek istiyor musunuz?
+
+    <form asp-action="Delete" method="post" id="deleteForm">
+        <input type="hidden" value="@Model.OgrenciId" name="id">
+        <button type="button" class="btn btn-danger" id="btnEvet">Evet</button>
+        <a asp-action="Index" class="btn btn-primary">Hayır</a>
+    </form>
+</p>
+
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // SweetAlert2 ile onay kutusu göster
+        document.getElementById('btnEvet').addEventListener('click', function () {
+            Swal.fire({
+                title: 'İşlem Başarılı!',
+                text: 'Öğrenci başarıyla silindi.',
+                icon: 'success',
+                timer: 2000, // 3 saniye sonra otomatik kapat
+                showConfirmButton: false
+            }).then(() => {
+                // Evet denilirse formu gönder
+                document.getElementById('deleteForm').submit();
+            });
+        });
+    </script>
+}

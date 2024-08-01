@@ -1,0 +1,40 @@
+@model IEnumerable<KursKayit>
+
+<h2>Kayıt Listesi</h2>
+<a asp-action="Create" class="btn btn-primary">Kayıt Ekle</a>
+<hr>
+<table id="kursKayitTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 150px;">ID</th>
+            <th>Ogrenci Adı</th>
+            <th>Kurs Başlık</th>
+            <th style="width: 150px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.KayitId)</td>
+                <td>@Html.DisplayFor(modelItem => item.Ogrenci.OgrenciAd)</td>
+                <td>@Html.DisplayFor(modelItem => item.Kurs.Baslik)</td>
+                <td>
+                    <!-- Düzenle ve Sil butonları ekleyebilirsiniz -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts {
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    
+    <script>
+        $(document).ready(function () {
+            $('#kursKayitTable').DataTable();
+        });
+    </script>
+}

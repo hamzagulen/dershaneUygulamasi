@@ -1,0 +1,66 @@
+﻿@page
+@addTagHelper *, efcoreApp
+
+<div class="text-center">
+    @Html.WelcomeMessage()
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="text-center">
+        <dershane-info></dershane-info>
+    </div>
+     
+
+    <div class="text-center mt-3">
+        <button class="btnOgrenciler">Öğrenciler</button>
+        <button class="btnOgretmenler">Öğretmenler</button>
+        <button class="btnKurslar">Kurslar</button>
+    </div>
+
+    <style>
+        .btnOgrenciler,
+        .btnOgretmenler,
+        .btnKurslar {
+            background-color: #001f3f; /* Koyu mavi renk */
+            color: #ffffff; /* Beyaz renk */
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px; /* Köşeleri yumuşatma */
+            margin: 5px; /* Butonlar arasında boşluk */
+        }
+    </style>
+    
+
+    @section scripts {
+        <script>
+            
+            $(document).ready(function () {
+                $('.btnOgrenciler').click(function () {
+                   
+                    window.location.href = '@Url.Action("Index", "Ogrenci")';
+                });
+
+                $('.btnOgretmenler').click(function () {
+                    
+                    window.location.href = '@Url.Action("Index", "Ogretmen")';
+                });
+
+                $('.btnKurslar').click(function () {
+                    
+                    window.location.href = '@Url.Action("Index", "Kurs")';
+                });
+            });
+        </script>
+    }
+</body>
+</html>
